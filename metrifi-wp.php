@@ -2,7 +2,7 @@
 /*
 Plugin Name: MetriFi WP
 Description: Create WordPress pages from MetriFi
-Version: 1.2
+Version: 1.3
 Author: MetriFi
 */
 
@@ -156,7 +156,7 @@ function metrifi_plugin_status(WP_REST_Request $request) {
     $response = array(
         'status' => 'active',
         'message' => 'MetriFi WP plugin is installed and active',
-        'version' => '1.2' // Match the version from the plugin header
+        'version' => '1.3' // Match the version from the plugin header
     );
     
     return rest_ensure_response($response);

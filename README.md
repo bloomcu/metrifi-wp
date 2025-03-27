@@ -114,7 +114,7 @@ No authentication required.
 {
   "status": "active",
   "message": "MetriFi WP plugin is installed and active",
-  "version": "1.2"
+  "version": "1.3"
 }
 ```
 
