@@ -26,6 +26,13 @@ add_action('rest_api_init', function () {
         'callback' => 'create_page_with_acf', // Function to handle the request
         'permission_callback' => 'custom_page_creation_permissions', // Check permissions
     ));
+
+    // Register a new endpoint to check if the plugin is installed
+    register_rest_route('metrifi/v1', '/status', array(
+        'methods' => 'GET', // Accept GET requests
+        'callback' => 'metrifi_plugin_status', // Function to handle the request
+        'permission_callback' => '__return_true', // Allow public access
+    ));
 });
 
 /**
@@ -136,6 +143,22 @@ function create_page_with_acf(WP_REST_Request $request) {
         'link'  => get_permalink($page_id),
     );
 
+    return rest_ensure_response($response);
+}
+
+/**
+ * Callback function to check if the MetriFi plugin is installed and active
+ * 
+ * @param WP_REST_Request $request
+ * @return WP_REST_Response
+ */
+function metrifi_plugin_status(WP_REST_Request $request) {
+    $response = array(
+        'status' => 'active',
+        'message' => 'MetriFi WP plugin is installed and active',
+        'version' => '1.2' // Match the version from the plugin header
+    );
+    
     return rest_ensure_response($response);
 }
 

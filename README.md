@@ -96,6 +96,30 @@ Content-Type: application/json
 }
 ```
 
+### Check Plugin Status
+
+```
+GET /wp-json/metrifi/v1/status
+```
+
+This endpoint allows clients to check if the MetriFi WP plugin is installed and active on the WordPress site.
+
+#### Headers
+
+No authentication required.
+
+#### Response
+
+```json
+{
+  "status": "active",
+  "message": "MetriFi WP plugin is installed and active",
+  "version": "1.2"
+}
+```
+
+If the plugin is not installed or the endpoint doesn't exist, the WordPress REST API will return a 404 error, which clients can use to determine that the plugin is not available.
+
 ## Notes
 
 - The plugin requires the ACF Pro plugin to be active
