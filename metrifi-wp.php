@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: MetriFi WP
-Description: Create pages from MetriFi
+Description: Create WordPress pages from MetriFi
 Version: 1.2
 Author: MetriFi
 */
