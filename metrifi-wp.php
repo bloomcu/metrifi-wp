@@ -122,11 +122,6 @@ function create_page_with_acf(WP_REST_Request $request) {
                 error_log('Missing acf_fc_layout in block: ' . print_r($block, true));
                 return null; // Skip invalid blocks
             }
-
-            // If block has 'image' property, convert it to an integer
-            if (isset($block['image'])) {
-                $block['image'] = intval($block['image']);
-            }
             
             return $block; // Pass the block through unchanged
         }, $content_blocks));
